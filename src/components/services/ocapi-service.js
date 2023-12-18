@@ -5,6 +5,7 @@ import {
     getContentAssetUrl
 } from '../constants/endpoints';
 
+const REACT_APP_CLIENT_ID = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 
 export const getAccessToken = async () => {
     const accessToken = localStorage.getItem('token');
@@ -13,7 +14,7 @@ export const getAccessToken = async () => {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'x-dw-client-id': `${process.env.REACT_APP_CLIENT_ID}`,
+            'x-dw-client-id': `${REACT_APP_CLIENT_ID}`,
         },
     };
 

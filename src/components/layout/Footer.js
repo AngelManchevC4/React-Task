@@ -13,7 +13,7 @@ const Footer = (props) => {
     return (
         <div className={classes.footer}>
             <footer>
-                <p className="col-md-4 mb-0 text-muted">© 2021 Company, Inc</p>
+                <p>© 2021 Company, Inc</p>
                 <section dangerouslySetInnerHTML={{ __html: contentAsset }}></section>
             </footer>
         </div>
