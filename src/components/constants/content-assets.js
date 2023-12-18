@@ -1,0 +1,1 @@
+export const FOOTER_LINKS_ASSET = "content-react-footer";
