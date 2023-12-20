@@ -4,7 +4,6 @@ import Carousel from "react-bootstrap/Carousel";
 const ProductCarousel = (props) => {
 
     let images = props.product.image_groups[0].images;
-    console.log(images);
 
     return (
         <Carousel>

@@ -12,9 +12,15 @@ export const CREATE_CART_URL = `${BASE_URL}/baskets`;
 export const CREATE_ORDER_URL = `${BASE_URL}/orders`;
 
 
-export const getContentAssetUrl = (cid) =>
-    `${BASE_URL}/content/${cid}`;
+export const getContentAssetUrl = (cid) =>`${BASE_URL}/content/${cid}`;
+
+export const getProductUrl = (pid) =>`${BASE_URL}/products/${pid}?expand=availability,prices,images,variations,bundled_products`;
+
+export const getCartUrl = (basketId) => `${BASE_URL}/baskets/${basketId}`;
+
+export const getAddProductUrl = (basketId) => `${BASE_URL}/baskets/${basketId}/items`;
+
+export const getRemoveProductUrl = (basketId, productId) => `${BASE_URL}/baskets/${basketId}/items/${productId}`;
 
 
-export const getProductUrl = (pid) =>
-    `${BASE_URL}/products/${pid}?expand=availability,prices,images,variations,bundled_products`;
+

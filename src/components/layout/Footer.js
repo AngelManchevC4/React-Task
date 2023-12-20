@@ -8,13 +8,11 @@ const Footer = (props) => {
 
     const { contentAsset } = useContentAsset(FOOTER_LINKS_ASSET);
 
-    console.log(contentAsset);
-
     return (
         <div className={classes.footer}>
             <footer>
                 <p>© 2021 Company, Inc</p>
-                <section dangerouslySetInnerHTML={{ __html: contentAsset }}></section>
+                {contentAsset && <section dangerouslySetInnerHTML={{ __html: contentAsset }}></section>}
             </footer>
         </div>
     )
