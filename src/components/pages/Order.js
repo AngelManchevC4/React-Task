@@ -3,21 +3,7 @@ import { useParams } from "react-router-dom";
 
 import { NOTIFICATION_ASSET } from "../constants/content-assets";
 
-import { getContentAsset } from "../services/ocapi-service";
-
-const useContentAsset = (cid) => {
-    const [contentAsset, setContentAsset] = useState(null);
-
-    useEffect(() => {
-        const fetchAsset = async () => {
-            const asset = await getContentAsset(cid);
-            setContentAsset(asset);
-        };
-        fetchAsset();
-    }, [cid]);
-
-    return { contentAsset };
-};
+import useContentAsset from "../hooks/useContentAsset";
 
 const Order = () => {
     const { orderId } = useParams();
