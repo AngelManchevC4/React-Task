@@ -16,7 +16,6 @@ const Product = () => {
     const [productAvailability, setProductAvailability] = useState(false);
 
     const selectOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    let fetchedProductVariants = [];
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -49,7 +48,7 @@ const Product = () => {
         }
     }
 
-    // console.log(product);
+    console.log(product);
 
     return (<>
         <div className="container h-100">
@@ -65,9 +64,24 @@ const Product = () => {
                     <div className={'container' && classes.productContainer}>
                         <div className="row">
                             <div className="col-sm-8">
-                                <h5>Select Color</h5>
-                                {product && product.variants.map((el, index) => <button value={el.product_id} key={el.product_id} onClick={changeProductVariant} className="color-value swatch-circle swatch-value">{el.product_id}
-                                </button>)}
+                                {product && product.variants[0].variation_values.size ?
+                                    (
+                                        <>
+                                            <h5>Select Size</h5>
+                                            {product && product.variants.map((el, index) => <button value={el.product_id} key={el.product_id} onClick={changeProductVariant} className="color-value swatch-circle swatch-value">{el.variation_values.size}
+                                            </button>)}
+                                        </>
+                                    )
+                                    :
+                                    (
+                                        <>
+                                            <h5>Select Color</h5>
+                                            {product && product.variants.map((el, index) => <button value={el.product_id} key={el.product_id} onClick={changeProductVariant} className="color-value swatch-circle swatch-value">{el.variation_values.color}
+                                            </button>)}
+                                        </>
+                                    )
+                                }
+
                             </div>
                             <div className="col-sm-4">
                                 <h5>Quantity</h5>
@@ -83,7 +97,7 @@ const Product = () => {
                             </div>
                             <div className="col-sm-12 text-center mt-5">
                                 <h2>{product && product.price} {product && product.currency}</h2>
-                                {product && <AddToCart pid={pid} quantity={productQuantity} productOrderable={product.inventory.orderable}/>}
+                                {product && <AddToCart pid={pid} quantity={productQuantity} productOrderable={product.inventory.orderable} />}
                             </div>
 
                         </div>

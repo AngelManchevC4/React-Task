@@ -22,5 +22,14 @@ export const getAddProductUrl = (basketId) => `${BASE_URL}/baskets/${basketId}/i
 
 export const getRemoveProductUrl = (basketId, productId) => `${BASE_URL}/baskets/${basketId}/items/${productId}`;
 
+export const getAddShippingAddressUrl = (basketId) =>`${BASE_URL}/baskets/${basketId}/shipments/me/shipping_address`;
 
+export const getAddShippingMethodUrl = (basketId) =>`${BASE_URL}/baskets/${basketId}/shipments/me/shipping_method`;
 
+export const getShippingMethodsUrl = (basketId) =>`${BASE_URL}/baskets/${basketId}/shipments/me/shipping_methods`;
+
+export const getAddBillingAddressUrl = (basketId) =>`${BASE_URL}/baskets/${basketId}/billing_address`;
+
+export const getPaymentMethodsUrl = (basketId) =>`${BASE_URL}/baskets/${basketId}/payment_methods`;
+
+export const getAddPaymentUrl = (basketId) =>`${BASE_URL}/baskets/${basketId}/payment_instruments`;

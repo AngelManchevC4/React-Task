@@ -9,11 +9,12 @@ const AddToCart = ({ productOrderable, pid, quantity }) => {
     let checkCart;
     let basketID;
 
-    if (localStorage.getItem('basketID')) {
+    if (localStorage.getItem('basketID') && cart.fault) {
       basketID = localStorage.getItem('basketID');
     } else {
       checkCart = await createCart();
       basketID = checkCart.basket_id;
+      localStorage.setItem('basketID',checkCart?.basket_id);
     }
 
     console.log(checkCart);
