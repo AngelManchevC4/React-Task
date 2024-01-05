@@ -1,3 +1,4 @@
+import Cookies from 'universal-cookie';
 import * as request from '../api/request';
 
 import {
@@ -12,7 +13,10 @@ import {
 export const createCart = async () => {
     const cart = await request.post(CREATE_CART_URL);
     if(cart.fault){
-        localStorage.setItem('basketID',cart.fault.arguments.basketIds)
+        const cookies = new Cookies();
+        cookies.set('basketID', cart.fault.arguments.basketIds, {
+          expires: new Date(Date.now() + 4 * 60 * 60 * 1000), // Set to expire in 4 hours
+        });
     }
     return cart;
 };

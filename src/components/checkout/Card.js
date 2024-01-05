@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { addPayment, createOrder, getPaymentMethods, } from "../services/checkout-services";
 import { useCartContext } from "../../context/CartContext";
+import Cookies from "universal-cookie";
 
 export const createPaymentObject = (amount, cardData) => {
     const object = {
@@ -58,8 +59,10 @@ const Card = ({ setStageStep }) => {
 
             setCart(null);
             setCartItemsCount(0);
-            localStorage.removeItem('basketID');
-
+            const cookies = new Cookies();
+            cookies.remove('basketID');
+            cookies.remove('basketIDExpires');
+        
             navigate(`/order/${order.order_no}`);
         }
     };

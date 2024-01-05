@@ -8,25 +8,27 @@ import Main from "./components/layout/Main";
 import { useEffect, useState } from "react";
 import { getExistingCart } from "./components/services/cart-service";
 import { useCartContext } from "./context/CartContext";
+import Cookies from "universal-cookie";
 
 function App() {
 
-  const {cart,setCart} =useCartContext();
-
-  const [existingBasket, setExistingBasket] = useState()
+  const { cart, setCart } = useCartContext();
 
   useEffect(() => {
     const getExistingBasket = async () => {
-      let basketID = localStorage.getItem('basketID');
-      let basket = await getExistingCart(basketID);
-      setCart(basket);
-    }
+      const cookies = new Cookies();
+      let basketID = cookies.get('basketID');
+      
+      if (basketID) {
+        let basket = await getExistingCart(basketID);
+        setCart(basket);
+      }
+    };
+
     getExistingBasket();
-  }, [])
+  }, [setCart]);
 
   console.log(cart);
-
-
   return (
     <>
       <div className='App main-section'>
