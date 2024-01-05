@@ -33,3 +33,5 @@ export const getAddBillingAddressUrl = (basketId) =>`${BASE_URL}/baskets/${baske
 export const getPaymentMethodsUrl = (basketId) =>`${BASE_URL}/baskets/${basketId}/payment_methods`;
 
 export const getAddPaymentUrl = (basketId) =>`${BASE_URL}/baskets/${basketId}/payment_instruments`;
+
+export const getBasketDurationUrl = (instanceType,groupId,preferenceId) =>`${BASE_URL}/site_preferences/preference_groups/${groupId}/${instanceType}/preferences/${preferenceId}`;

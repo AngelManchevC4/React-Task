@@ -7,7 +7,7 @@ import {
     getAddShippingAddressUrl,
     getAddShippingMethodUrl,
     getPaymentMethodsUrl,
-    getShippingMethodsUrl
+    getShippingMethodsUrl,
 } from '../constants/endpoints';
 
 export const addShippingAddress = async (basketId, shippingData) => {

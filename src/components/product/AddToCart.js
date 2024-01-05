@@ -1,7 +1,8 @@
 import { useCartContext } from "../../context/CartContext";
-import { addProductToCart, createCart, getExistingCart } from "../services/cart-service";
+import { addProductToCart, createCart, getBasketDuration } from "../services/cart-service";
 
 const AddToCart = ({ productOrderable, pid, quantity }) => {
+  
   const { cart, setCart } = useCartContext();
 
   const addToCart = async () => {
@@ -27,8 +28,10 @@ const AddToCart = ({ productOrderable, pid, quantity }) => {
     ];
 
     const newCart = await addProductToCart(basketID, productData);
+
+    // const basketDuration = await getBasketDuration('sandbox','baskets','registeredCustomers');
+
     setCart(newCart);
-    console.log(newCart);
   };
 
   return productOrderable ? (

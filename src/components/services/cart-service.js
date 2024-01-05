@@ -4,7 +4,8 @@ import {
     CREATE_CART_URL,
     getAddProductUrl,
     getRemoveProductUrl,
-    getCartUrl
+    getCartUrl,
+    getBasketDurationUrl
 } from '../constants/endpoints';
 
 
@@ -30,3 +31,8 @@ export const removeProductFromCart = async (basketId, productId) => {
     const cart = await request.del(getRemoveProductUrl(basketId, productId));
     return cart;
 };
+
+export const getBasketDuration = async(instanceType,groupId,preferenceId)=>{
+    const basketDuration = await request.get(getBasketDurationUrl(instanceType,groupId,preferenceId));
+    return basketDuration;
+}
